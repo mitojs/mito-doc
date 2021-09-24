@@ -9,11 +9,9 @@ nav:
 
 # @mitojs/react
 
-# ⚠️ attention
+# ⚠️ 注意
 
-**If you want to import in weixin miniprograme,please replace `@mitojs/browser` to `@miotjs/wx-mini`**
-
-
+**如果你想要在微信小程序里面引入，请把 `@mitojs/browser` 替换成 `@miotjs/wx-mini`**
 
 
 
@@ -53,7 +51,7 @@ If you're using React 16 or above, you can use [ErrorBoundary](https://reactjs.o
 
 **index.tsx**
 
-```tsx
+```jsx | pure
 import React from 'react'
 import App from './App'
 import { MitoProvider } from '@mitojs/react'
@@ -78,7 +76,7 @@ const APP: React.FC = () => {
 
 `ErrorBoundary` component  will automatically send react error if you set the correct [dsn](https://github.com/mitojs/mitojs/blob/master/docs/option.md).
 
-```tsx
+```jsx | pure
 import { ErrorBoundary } from '@mitojs/react'
 import ChildComponent from './ChildComponent'
 
@@ -102,7 +100,7 @@ export default function OtherComponent() {
 
 `init`return a `BrowserClient`, so you can define multiple instances with `init`.The configuration and hooks between multiple instances does not affect each other.
 
-```js
+```jsx | pure
 import React from 'react'
 import App from './App'
 import { MitoProvider } from '@mitojs/react'
@@ -141,7 +139,7 @@ If you want to use in Weixin miniprogram,just replace `@mitojs/browser` to `@mit
 yarn add @mitojs/react @mitojs/wx-mini
 ```
 
-```typescript
+```jsx | pure
 import React from 'react'
 import App from './App'
 import { MitoProvider } from '@mitojs/react'
@@ -184,7 +182,7 @@ there is `MITO` varible automatically mounted on the window when you use cdn in 
 
 **index.tsx**
 
-```tsx
+```jsx | pure
 import React from 'react'
 import App from './App'
 
