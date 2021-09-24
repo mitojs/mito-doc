@@ -9,7 +9,7 @@ nav:
 
 # What's MITO?
 
-MITO, is a lite SDK for monitor web
+MITO,pronounced like [miːtəʊ],is a lite SDK for monitor web and weixin miniprograme
 
 ## Feature
 
@@ -35,6 +35,26 @@ MITO, is a lite SDK for monitor web
 
 ✔️ 🔥 keep iterating~
 
-### demo
+## quick start
 
-demo lists
+### browser
+#### 🛠️ Install
+```bash
+# using npm
+npm i @mitojs/browser
+# using yarn
+yarn add @mitojs/browser
+```
+
+#### 🥳 Usage
+```typescript
+import { init } from '@mitojs/browser'
+
+const MitoInstance = init({
+  dsn: 'https://test.com/yourInterface',
+  maxBreadcrumbs: 100
+})
+```
+
+
+
