@@ -4,9 +4,13 @@ export default defineConfig({
   title: 'MITO',
   favicon: 'https://tva1.sinaimg.cn/large/008eGmZEly1gntzz0kgn4j305k05kdfm.jpg',
   logo: 'https://tva1.sinaimg.cn/large/008eGmZEly1gntzz0kgn4j305k05kdfm.jpg',
-  outputPath: 'dist',
+  outputPath: 'docs',
   mode: 'site',
   publicPath: '/mito-doc/',
+  resolve: {
+    resolve: ['src'],
+  },
+
   // history: {
   //   type: 'hash',
   // },
