@@ -1,5 +1,5 @@
 ---
-title: base opotions
+title: base options
 order: 2
 toC: menu
 nav:
@@ -7,40 +7,53 @@ nav:
   order: 1
 ---
 
-# base opotions
+# base options
 
-## base fields
+**The following is base options, both [@mitojs/browser](./browser) and [@mitojs/wx-mini](./wx-mini.md) can use 😎**
+## BaseOptionsFieldsType
 
-上报接口的地址
+
+report to server's url
 ### dsn?: string
-默认关闭，为true时，整个sdk将禁用
+
+default is closed,sdk all functions will be turned off when set ture
 ### disabled?: boolean
-每个项目都应有一个唯一key
+
+default is ''(empty string),it mean that every project has a unique key
 ### apikey?: string
-默认关闭，为true时会在控制台打印用户行为栈
+
+default is closed,it will be print in Console when set true
 ### debug?: boolean
-默认关闭traceId，开启时，页面的所有请求都会生成一个unique id，放入请求头中
+
+default is closed,all page's http request will add a unique id in request header
 ### enableTraceId?: boolean
-当开启enableTraceId时，traceId放入请求头中的key，默认是Trace-Id，也可以手动配置
-### traceIdFieldName?: string
-如果开启了enableTraceId,也需要配置该配置项，includeHttpUrlTraceIdRegExp.test(xhr.url)为true时，才会在该请求头中添加traceId
-由于考虑部分接口如果随便加上多余的请求头会造成跨域，所以这边用的是包含关系的正则
 
+Should config this field if you set `enableTraceId` true.Considering that random addition of redundant request headers maybe cause cross-domain error,so here is regular containing relationship.It will be included When `includeHttpUrlTraceIdRegExp.test(xhr.url)` is `true`
 ### includeHttpUrlTraceIdRegExp?: RegExp
-默认为空，所有ajax都会被监听，不为空时，filterXhrUrlRegExp.test(xhr.url)为true时过滤
-### filterXhrUrlRegExp?: RegExp
-默认20，最大100，超过100还是设置成100
-### maxBreadcrumbs?: number
-默认是0，表示按钮点击和微信触摸事件节流时间
-### throttleDelayTime?: number
-最多可重复上报同一个错误的次数
-### maxDuplicateCount?: number
-Vue根实例
 
+When set `enableTraceId` true,traceId will be added in request header, defaul value is `Trace-Id`.You can configure this field to appoint name
+### traceIdFieldName?: string
+
+
+default value is null,mean all ajax http will be monitored.You can set some value to filter url.It will filter when `filterXhrUrlRegExp.test(xhr.url) === true`
+### filterXhrUrlRegExp?: RegExp
+
+defaul value is 20,it will be 100 if value more than 100.it mean breadcrumb stack length
+### maxBreadcrumbs?: number
+
+defaul value is 0,it mean throttle delay time of button click event and weixin touch event
+### throttleDelayTime?: number
+
+default value is 2,it mean max report count of the same error
+### maxDuplicateCount?: number
+
+vue's root Instance
 ### vue?: VueInstance
 
 
-### base hooks
+
+## BaseOptionsHooksType
+
 
 ```js
   /**
@@ -184,3 +197,83 @@ MITO.init({
 	}
 })
 ```
+
+
+## manual reporting
+you can call `log` function in anywhere with mito instance
+
+```js
+interface LogTypes {
+  message?: string | number | Object
+  tag?: string;
+  level?: Severity;
+  ex?: any;
+}
+MitoInstance.log(LogTypes)
+```
+
+```js
+MitoInstance.log({
+  message: 'some msg',
+  tag: 'your tag',
+})
+```
+
+
+Sometime we need to report business information or track information in business code,then we can use `MitoInstance.log`.The following example is that report abnormal information if the http interface is abnoraml
+```js
+$api.getPayStatus().then(res => {
+  if (res.success) {
+    // http status normal
+  } else {
+    // abnormal report information
+    MitoInstance.log({
+      // error message
+      message: res.errMsg,
+      // optional,can understand as category
+      tag: 'payPage'
+      // optional,default is Severity.Critical
+      // level: '',
+      // optional,Error Object
+      // ex: ''
+    })
+  }
+})
+```
+
+It's also can statistical PV and UV of uses of each function.Such as the following example is track in ActivePage function,UV statistics need to rely on `trackerId`[trackerId configuration](#backtrackerid-string--number)
+```js
+/**
+ * react hook component:ActivePage
+ */
+function ActivePage() {
+  useEffect(() => {
+    MitoInstance.log({
+      // optional
+      tag: 'ActivePage'
+    })
+  }, [])
+  return <div>This Is ActivePage</div>
+}
+```
+
+
+### generate errorId
+errorId source code [click here](https://github.com/mitojs/mitojs/blob/master/packages/utils/src/errorId.ts)
+
+It's generated according to the passed `tag` key,so will generate the same errorId when passed the same `tag` plus different `message`.Such as the follow:
+
+```js
+MitoInstance.log({
+  message: 'test_1',
+  tag: 'ActivePageStatistics'
+})
+```
+
+```js
+MitoInstance.log({
+  message: 'test_2',
+  tag: 'ActivePageStatistics'
+})
+```
+The two example will generated the same errorId.But if the `tag` key changed,it will be different
