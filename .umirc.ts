@@ -2,8 +2,9 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   title: 'MITO',
-  favicon: 'https://tva1.sinaimg.cn/large/008eGmZEly1gntzz0kgn4j305k05kdfm.jpg',
-  logo: 'https://tva1.sinaimg.cn/large/008eGmZEly1gntzz0kgn4j305k05kdfm.jpg',
+  favicon:
+    'https://tva1.sinaimg.cn/large/008i3skNly1guuhc7m78xj60x60t8t9m02.jpg',
+  logo: 'https://tva1.sinaimg.cn/large/008i3skNly1guuhc7m78xj60x60t8t9m02.jpg',
   outputPath: 'docs',
   mode: 'site',
   publicPath: '/mito-doc/',
