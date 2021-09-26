@@ -10,10 +10,9 @@ export default defineConfig({
   resolve: {
     resolve: ['src'],
   },
-
-  // history: {
-  //   type: 'hash',
-  // },
+  history: {
+    type: 'hash',
+  },
   // navs: [
   //   {
   //     title: '指南',
