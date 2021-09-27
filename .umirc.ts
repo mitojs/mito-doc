@@ -6,7 +6,7 @@ export default defineConfig({
     'https://tva1.sinaimg.cn/large/008i3skNly1guuhc7m78xj60x60t8t9m02.jpg',
   logo: 'https://tva1.sinaimg.cn/large/008i3skNly1guuhc7m78xj60x60t8t9m02.jpg',
   outputPath: 'docs',
-  base: '/mito-doc',
+  // base: '/mito-doc',
   publicPath: '/mito-doc/',
   mode: 'site',
   resolve: {
