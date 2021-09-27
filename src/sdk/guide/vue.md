@@ -1,6 +1,6 @@
 ---
 title: @mitojs/vue
-order: 4
+order: 6
 toC: menu
 nav:
   title: SDK

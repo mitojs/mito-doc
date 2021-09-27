@@ -1,6 +1,6 @@
 ---
 title: @mitojs/react
-order: 3
+order: 5
 toC: menu
 nav:
   title: SDK
@@ -9,9 +9,9 @@ nav:
 
 # @mitojs/react
 
-# ⚠️ attention
+# ⚠️ 注意
 
-**If you want to import in weixin miniprograme,please replace `@mitojs/browser` to `@miotjs/wx-mini`**
+**如果你想要在微信小程序里面引入，请把 `@mitojs/browser` 替换成 `@miotjs/wx-mini`**
 
 
 
