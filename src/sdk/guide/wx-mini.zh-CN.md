@@ -132,7 +132,7 @@ npm i @mitojs/wx-mini @mitojs/react
 ```js
 MITO.init({
   ...
-  configReportWxRequest(breadcrumb, hint){
+  configReportWxRequest(){
   	return {
       header: {
         'Content-Type': 'text/plain; charset=UTF-8'
