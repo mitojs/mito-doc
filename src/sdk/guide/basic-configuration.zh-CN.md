@@ -9,7 +9,7 @@ nav:
 
 # 基础配置
 
-**The following is base options, both of [@mitojs/browser](./browser) and [@mitojs/wx-mini](./wx-mini.md) can use 😎**
+**以下是基础配置,[@mitojs/browser](./browser) 和 [@mitojs/wx-mini](./wx-mini.md) 都可以传入使用 😎**
 
 ## 基础属性
 
@@ -125,8 +125,58 @@ MITO.init({
 })
 ```
 
+## mito多实例
+从版本`2.1.28`开始，`mitojs`就升级成了多实例，每个实例下的配置项和hooks都是隔离的，每个实例下的所有属性和数据也是隔离。配置多个实例，方便在多个业务方之间定制不同的需求，还可以上报到不同`dsn`
 
-## manual reporting
+```js
+const MitoInstance = MITO.init({
+  debug: true,
+  maxBreadcrumbs: 100,
+  dsn: 'http://www.test.com/upload',
+})
+```
+
+### MitoInstance.breadcrumb
+* 用户行为栈的存储类，你可通过该属性拿到sdk收集到的信息 
+```js
+const breadcrumbStack = MitoInstance.breadcrumb.getStack()
+```
+
+* 可以在这个行为栈后面追加一条
+```js
+interface BreadcrumbPushData {
+  /**
+   * 事件类型
+   */
+  type: BreadcrumbTypes
+  data: any
+  /**
+   * 分为user action、debug、http、
+   */
+  category?: BREADCRUMBCATEGORYS
+  time?: number
+  level: Severity
+}
+MitoInstance.breadcrumb.push(data: BreadcrumbPushData)
+```
+当然你可以完全不按照上面的声明类型`push`也是可以的，但是推荐是按照同一种数据结构，方便遍历。
+
+* 可以清空当前用户行为栈
+`MitoInstance.breadcrumb.clear()`
+
+###  MitoInstance.getOptions()
+这个方法可以获取当前你传入的全部配置项
+
+
+### MitoInstance.transport 
+* 你可以直接调用`send`方法将你想要上报的数据直接上传 <Badge>不推荐</Badge>
+
+第一参数是你想要上报的数据，第二个参数是breadcrumb
+
+`MitoInstance.transport.send(yourData, MitoInstance.breadcrumb.getStack())`
+
+
+### MitoInstance.log  <Badge>推荐</Badge>
 you can call `log` function in anywhere with mito instance
 
 ```js
@@ -188,3 +238,6 @@ function ActivePage() {
   return <div>This Is ActivePage</div>
 }
 ```
+
+### MitoInstance.SDK_VERSION
+该属性可以获取当前的sdk版本

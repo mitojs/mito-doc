@@ -126,6 +126,10 @@ MITO.init({
 ```
 
 
+## mito instance
+
+
+
 ## manual reporting
 you can call `log` function in anywhere with mito instance
 
