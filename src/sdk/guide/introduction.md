@@ -9,9 +9,9 @@ nav:
 
 # What's MITO?
 
-MITO,pronounced like [miːtəʊ],is a lite SDK for monitor web and weixin miniprograme
+MITO,pronounced like [miːtəʊ],it's the abbreviation of `monitor` that is a lite SDK for monitor web and weixin miniprograme
 
-## Feature
+## 🥳 Feature
 
 ✔️ 🔨 monitor Xhr、Fetch、wx.request
 

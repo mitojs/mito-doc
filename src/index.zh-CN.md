@@ -4,7 +4,7 @@ hero:
   desc: mitojs监控文档
   actions:
     - text: 快速上手
-      link: /sdk/guide/introduction
+      link: /zh-CN/sdk/guide/introduction
 features:
   - icon: https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.51yuansu.com%2Fpic2%2Fcover%2F00%2F32%2F90%2F58110be71b4a5_610.jpg&refer=http%3A%2F%2Fpic.51yuansu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1623556753&t=74bc51c01d5e8b41e25932e8aa44c13e
     title: 接口、代码、资源监控
