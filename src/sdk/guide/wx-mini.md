@@ -82,7 +82,7 @@ const MitoInstance = init({
 },[vuePlugin])
 ```
 
-更多关于`@mitojs/vue`的用法[点击这里](../vue/README.md)
+更多关于`@mitojs/vue`的用法[点击这里](./vue.md)
 
 
 
@@ -94,16 +94,15 @@ const MitoInstance = init({
 npm i @mitojs/wx-mini @mitojs/react
 ```
 
-更多关于`@mitojs/react`的用法[click here](../react/README.md)
+更多关于`@mitojs/react`的用法[click here](./react.md)
 
 
 
 
-## options
+# options
+以下是`@mitojs/wx-mini`专有的配置项和hooks，基础配置项点击[这里](./basic-configuration.md)
 
-[基础配置项](../core/README.md)
-
-### WxSilentOptionsType
+## WxSilentOptionsType
 
 |              Name              | Type      | Default    | Description                                                  |
 | :----------------------------: | --------- | ---------- | ------------------------------------------------------------ |
@@ -115,7 +114,7 @@ npm i @mitojs/wx-mini @mitojs/react
 |   `silentAppOnUnhandledRejection`   | `boolean` | `false`    | 默认会监控微信小程序的unhandledrejection，为true时，将不在监控           |
 |    `silentAppOnPageNotFound`    | `boolean` | `false`    | 默认会监控微信小程序的微信小程序App的onPageNotFound，为true时，将不在监控 |
 
-### WxHookOptionsType
+## WxHookOptionsType
   ```js
   /**
    * 配置wx小程序上报时的wx.request配置
