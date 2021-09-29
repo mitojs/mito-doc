@@ -11,34 +11,9 @@ nav:
 
 MITO,pronounced like [miːtəʊ],it's the abbreviation of `monitor` that is a lite SDK for monitor web and weixin miniprograme
 
-## 🥳 Feature
-
-✔️ 🔨 monitor Xhr、Fetch、wx.request
-
-✔️ 🔨 monitor console、wx.console
-
-✔️ 🔨 monitor route change(hashroute、browser route、wx route)
-
-✔️ 🔨 monitor code error、resource load error
-
-✔️ 🔨 monitor click、wx:tab、wx:touchmove
-
-✔️ 👌 rich hooks and options
-
-✔️ 👌 perfect test for web unit test、web e2e、wxmini e2e
-
-✔️ 👌 support web（>= IE8） [@mitojs/browser](https://github.com/mitojs/mitojs/tree/master/packages/browser)
-
-✔️ 👌 support framework with Vue3、Vue2.6[@mitojs/vue](https://github.com/mitojs/mitojs/tree/master/packages/vue)、React@latest[@mitojs/react](https://github.com/mitojs/mitojs/tree/master/packages/react)
-
-✔️ 👌 support native wxmini、uni-app、remax framework etc [@mitojs/wx-mini](https://github.com/mitojs/mitojs/tree/master/packages/wx-mini)
-
-✔️ 🔥 keep iterating~
-
 ## quick start
 
-### browser
-#### 🛠️ Install
+### 🛠️ Install
 ```bash
 # using npm
 npm i @mitojs/browser
@@ -46,7 +21,7 @@ npm i @mitojs/browser
 yarn add @mitojs/browser
 ```
 
-#### 🥳 Usage
+### 🥳 Usage
 ```typescript
 import { init } from '@mitojs/browser'
 
@@ -56,5 +31,54 @@ const MitoInstance = init({
 })
 ```
 
+## 🤔 what can it do?
 
+### collecting error information
 
+can collect the following error information:
+
+* code error
+* [onhandlerejection](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/unhandledrejection_event)
+* resource loading error
+* http request error
+* route change error
+
+### collecting user behavior
+
+can collect the following user behavior
+
+* click event、wx.tap、wx.touchmove
+* http request
+* console
+* route change
+
+### support platforms
+
+* web（>= IE8） [@mitojs/browser](./browser.md)
+* Vue2、Vue3 [@mitojs/vue](./vue.md)
+* React(>=16.x) [@mitojs/react](./react.md)
+* weixin miniprograme [@mitojs/wx-mini](./wx-mini.md)
+
+### Demo:experience the SDK to collect data
+
+* [react-sdk-demo](https://mitojs.github.io/react-sdk-demo):Use @mitojs/react  in react@next
+
+* [vue3-sdk-demo](https://mitojs.github.io/vue3-sdk-demo):Use @mitojs/vue in Vue3.x
+
+* [vue2-sdk-demo](https://mitojs.github.io/vue2-sdk-demo):Use @mitojs/vue in Vue2.x
+
+### DIY your weixin miniprograme track SDK
+
+[@mitojs/wx-mini] just provider some hooks and report method because of the track is too business。However,you can DIY track SDK for yourself with those hooks.
+
+## 😃 monitoring platform(mito admin with mock data)
+
+<!-- ![react-example](https://tva1.sinaimg.cn/large/008eGmZEly1gmxggqptzwg30u00hoe84.gif) -->
+
+[vue-admin-demo](https://mitojs.github.io/mito-admin-demo/#/errors/1/info): show a HTTP_ERROR in vue platform
+
+[react-admin-demo](https://mitojs.github.io/mito-admin-demo/#/errors/2/info): show a JAVASCRIPT_ERROR in react platform
+
+[js-admin-demo](https://mitojs.github.io/mito-admin-demo/#/errors/3/info):show JAVASCRIPT_ERROR in js platform
+
+[wx-mini-admin-demo](https://mitojs.github.io/mito-admin-demo/#/errors/4/info):show JAVASCRIPT_ERROR in wx-mini platform

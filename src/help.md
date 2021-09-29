@@ -1,6 +1,6 @@
 ---
 nav:
-  title: 联系我
+  title: Contact
   # order: 3
 hero:
   title: 联系我
