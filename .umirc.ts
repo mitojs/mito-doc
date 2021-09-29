@@ -12,10 +12,19 @@ export default defineConfig({
   resolve: {
     resolve: ['src'],
   },
+  exportStatic: {},
   hash: true,
   history: {
     type: 'hash',
   },
+  // ssr: {
+  //   // 更多配置
+  //   // forceInitial: false,
+  //   // removeWindowInitialProps: false
+  //   // devServerRender: true,
+  //   // mode: 'string',
+  //   // staticMarkup: false,
+  // },
   // navs: [
   //   {
   //     title: '指南',
