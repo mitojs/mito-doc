@@ -26,25 +26,16 @@ export default defineConfig({
   //   // mode: 'string',
   //   // staticMarkup: false,
   // },
-  // navs: [
-  //   {
-  //     title: '指南',
-  //     order: 1,
-  //     path: '/docs/cook',
-  //   },
-  //   {
-  //     title: 'API',
-  //     order: 2,
-  //     path: '/api',
-  //     // children: [
-  //     //   { title: '@分包1', path: '/xxxx' },
-  //     //   { title: '@分包2', path: '/xxx' },
-  //     // ],
-  //   },
-  //   {
-  //     title: '联系我们',
-  //     order: 3,
-  //     path: '/help',
-  //   },
-  // ],
+  navs: {
+    'en-US': [
+      null,
+      { title: 'GitHub', path: 'https://github.com/mitojs/mitojs' },
+      { title: 'Changelog', path: 'https://github.com/mitojs/mitojs/releases' },
+    ],
+    'zh-CN': [
+      null,
+      { title: 'GitHub', path: 'https://github.com/mitojs/mitojs' },
+      { title: '更新日志', path: 'https://github.com/mitojs/mitojs/releases' },
+    ],
+  },
 });

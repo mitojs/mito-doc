@@ -1,5 +1,5 @@
 ---
-title: advanced configuration
+title: 高级配置
 order: 3
 toC: menu
 nav:
@@ -7,11 +7,11 @@ nav:
   order: 1
 ---
 
-# advanced configuration
+# 高级配置
 
 **The following is base options, both of [@mitojs/browser](./browser) and [@mitojs/wx-mini](./wx-mini.md) can use 😎**
 
-## advanced field
+## 属性
 
 default is closed,all page's http request will add a unique id in request header
 ### enableTraceId?: boolean
@@ -31,7 +31,7 @@ defaul value is 0,it mean throttle delay time of button click event and weixin t
 ### throttleDelayTime?: number
 
 
-## advanced hooks
+## 钩子函数
 
 
   ```js
