@@ -14,27 +14,25 @@ nav:
 ## 基础属性
 
 ### dsn?: string
-report to server's url
+上报到服务端的url
 
 ### disabled?: boolean
-default is closed,sdk all functions will be turned off when set ture
+默认是false，为true时，sdk将不会初始化
 
 ### apikey?: string
-default is ''(empty string),it mean that every project has a unique key
+默认是''，表示每个项目都应该有一个唯一值
 
 ### debug?: boolean
-default is closed,it will be print in Console when set true
+默认是关闭的，当为true时将会在控制台打印收集到的数据（建议在开发环境设为true）
 
 ### maxDuplicateCount?: number
-default value is 2,it mean max report count of the same error
+默认值是2，表示同一个错误上报的最大次数
 
 ### maxBreadcrumbs?: number
-defaul value is 20,it will be 100 if value more than 100.it mean breadcrumb stack length
+默认值是20，如果设置的值大于100，将用100取代。表示最大用户行为栈的长度
 
 ### vue?: VueInstance
-vue's root Instance.go to [@mitojs/vue usage](./vue.md)
-
-
+vue的根实例，查看[@mitojs/vue 使用指南](./vue.md)
 
 
 ## 基础钩子

@@ -17,4 +17,10 @@ nav:
 
 <img src="https://files.catbox.moe/s867pa.png" width="460" height="600">
 
+
+**如果交流群二维码失效，可直接加我微信，我会拉进群**
+
+<img src="https://tva1.sinaimg.cn/large/008i3skNly1guqs71uy5pj60u50u0ju802.jpg" width="200" height="200"></img>
+
+
 <!-- ![交流群](https://files.catbox.moe/s867pa.png) -->

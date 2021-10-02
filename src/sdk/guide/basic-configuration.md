@@ -23,7 +23,7 @@ default is closed,sdk all functions will be turned off when set ture
 default is ''(empty string),it mean that every project has a unique key
 
 ### debug?: boolean
-default is closed,it will be print in Console when set true
+default is closed,it will be print in Console when set true(recommending set true in the development)
 
 ### maxDuplicateCount?: number
 default value is 2,it mean max report count of the same error
