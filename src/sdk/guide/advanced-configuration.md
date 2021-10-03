@@ -13,23 +13,25 @@ nav:
 
 ## advanced field
 
-default is closed,all page's http request will add a unique id in request header
+
 ### enableTraceId?: boolean
+default is closed,all page's http request will add a unique id in request header when set true
 
-Should config this field if you set `enableTraceId` true.Considering that random addition of redundant request headers maybe cause cross-domain error,so here is regular containing relationship.It will be included When `includeHttpUrlTraceIdRegExp.test(xhr.url)` is `true`
+
 ### includeHttpUrlTraceIdRegExp?: RegExp
+Should config this field if you set `enableTraceId` true.Considering that random addition of redundant request headers maybe cause cross-domain error,so here is regular containing relationship.It will be included When `includeHttpUrlTraceIdRegExp.test(xhr.url)` is `true`
 
-When set `enableTraceId` true,traceId will be added in request header, defaul value is `Trace-Id`.You can configure this field to appoint name
+
 ### traceIdFieldName?: string
+When set `enableTraceId` true,traceId will be added in request header, defaul value is `Trace-Id`.You can configure this field to appoint name
 
 
-default value is null,mean all ajax http will be monitored.You can set some value to filter url.It will filter when `filterXhrUrlRegExp.test(xhr.url) === true`
 ### filterXhrUrlRegExp?: RegExp
+default value is null,mean all ajax request will be monitored.You can set some value to filter url.It will filter when `filterXhrUrlRegExp.test(xhr.url) === true`
 
 
-defaul value is 0,it mean throttle delay time of button click event and weixin touch event
 ### throttleDelayTime?: number
-
+defaul value is 0,it mean throttle delay time of collect button click event and weixin touch event
 
 ## advanced hooks
 

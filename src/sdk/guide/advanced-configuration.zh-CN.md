@@ -13,23 +13,26 @@ nav:
 
 ## 属性
 
-default is closed,all page's http request will add a unique id in request header
+
 ### enableTraceId?: boolean
+默认是关闭，为true时，所有页面的http请求都在请求头中添加一个唯一键
 
 Should config this field if you set `enableTraceId` true.Considering that random addition of redundant request headers maybe cause cross-domain error,so here is regular containing relationship.It will be included When `includeHttpUrlTraceIdRegExp.test(xhr.url)` is `true`
 ### includeHttpUrlTraceIdRegExp?: RegExp
+当你设置`enableTraceId`为`true`时，应该配置当前属性。考虑到随便在请求头中添加属性会导致跨域错误，所以这边的正则配置是包含关系。当`includeHttpUrlTraceIdRegExp.test(xhr.url)`为`true`时这个`xhr.url`的请求头才会被添加`Trace-Id`
 
-When set `enableTraceId` true,traceId will be added in request header, defaul value is `Trace-Id`.You can configure this field to appoint name
+
 ### traceIdFieldName?: string
+当你设置`enableTraceId:true`，`traceId`将会在请求头中被添加，默认key是`Trace-Id`。你可以通过配置当前属性来指定名称
 
 
-default value is null,mean all ajax http will be monitored.You can set some value to filter url.It will filter when `filterXhrUrlRegExp.test(xhr.url) === true`
 ### filterXhrUrlRegExp?: RegExp
+默认值是null，表示所有ajax请求都将被监听。你可以设置当前值来过滤哪些你不想监听的url。过滤规则是`filterXhrUrlRegExp.test(xhr.url) === true`时，会被过滤掉
 
 
-defaul value is 0,it mean throttle delay time of button click event and weixin touch event
+
 ### throttleDelayTime?: number
-
+默认值为0，表示收集按钮点击事件和微信小程序touch事件的节流时间
 
 ## 钩子函数
 
