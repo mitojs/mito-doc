@@ -28,8 +28,6 @@ yarn add @mitojs/react @mitojs/browser
 
 ## 🥳 Usage
 
-### Configure
-
 
 ```js
 import React from 'react'
@@ -45,9 +43,9 @@ const MitoInstance = init({
 
 
 
-### Add ErrorBoundary
+### 添加 ErrorBoundary 组件
 
-If you're using React 16 or above, you can use [ErrorBoundary](https://reactjs.org/docs/error-boundaries.html) component to catch render error and automatically send to server.Here are some configurations of ErrorBoundary component that provided by @mitojs/react.
+如果你使用的版本大于react16.x，可以使用 [ErrorBoundary](https://reactjs.org/docs/error-boundaries.html)组件来捕捉渲染错误和自动上报到服务端。下面是一些关于`Errorboundary`的配置，它是由`@mitojs/react`提供的。
 
 **index.tsx**
 
@@ -74,7 +72,7 @@ const APP: React.FC = () => {
 
 **OtherComponent.tsx**
 
-`ErrorBoundary` component  will automatically send react error if you set the correct [dsn](https://github.com/mitojs/mitojs/blob/master/docs/option.md).
+如果你设置正确的[dsn](./basic-configuration.zh-CN.md#dsn-string),`ErrorBoundary`组件将会自动上报react错误
 
 ```jsx | pure
 import { ErrorBoundary } from '@mitojs/react'
@@ -96,9 +94,9 @@ export default function OtherComponent() {
 }
 ```
 
-## multiple instances
+## 多实例
 
-`init`return a `BrowserClient`, so you can define multiple instances with `init`.The configuration and hooks between multiple instances does not affect each other.
+`init`函数返回一个`BrowserClient`实例，所以你多次执行`init`来获取多个实例。所有的配置项和钩子函数在多个实例间是互不影响的
 
 ```jsx | pure
 import React from 'react'
@@ -120,10 +118,10 @@ const MitoInstance_two = init({
 const APP: React.FC = () => {
   return (
     <MitoProvider MitoInstance={MitoInstance_one}>
-      // this is used MitoInstance_one
+      // 这里将会用到MitoInstance_one实例
         <App />
     		<MitoProvider MitoInstance={MitoInstance_two}>
-           // this is used MitoInstance_two
+           // 这里将会用到MitoInstance_two实例
            <OtherComponent />
         </MitoProvider>
     </MitoProvider>
@@ -131,10 +129,11 @@ const APP: React.FC = () => {
 }
 ```
 
-## Use in wx-mini
-If you want to use in Weixin miniprogram,just replace `@mitojs/browser` to `@mitojs/wx-mini`.Just like this:
+## 在微信小程序中使用
+如果你想在微信小程序中使用，只要把`@mitojs/browser`替换成`@mitojs/wx-mini`即可，就像下面那样：
 
-**install**
+**安装**
+
 ```bash
 yarn add @mitojs/react @mitojs/wx-mini
 ```
@@ -161,24 +160,18 @@ const APP: React.FC = () => {
 ```
 
 
-## Using CDN in Browser
-CDN way is **not recommended**.Because `@mitojs/web` commonjs file is include `jsxRuntime` code,so it's size is larger than else package.
+## 使用CDN方式 <Badge>不推荐</Badge>
+不推荐使用CDN方式，因为`@mitojs/web`的`cjs`文件包含了`jsxRuntime`代码，所以这个包的大小会比其他的包大很多。
 
 **index.html**
 
 ```html
 <header>
   <script src="https://cdn.jsdelivr.net/npm/@mitojs/web/dist/web.min.js"></script>
-  <script>
-    MITO.init({
-		  dsn: 'https://test.com/yourServer',
-		  maxBreadcrumbs: 100,
-    });
-  </script>
 </header>
 ```
 
-there is `MITO` varible automatically mounted on the window when you use cdn in script tag.Then you can use in react component
+当你在`index.html`使用了CDN方式，将会有一个`MITO`的全局变量会被挂载到`window`上。然后你就可以在组件中使用它
 
 **index.tsx**
 

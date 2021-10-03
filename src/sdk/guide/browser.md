@@ -57,15 +57,15 @@ const MitoInstance = init({
 
 |              Name              | Type      | Default    | Description                                                  |
 | :----------------------------: | --------- | ---------- | ------------------------------------------------------------ |
-| `useImgUpload` | `boolean` | `false` | 为true时，则使用img上报的方式，会在dsn后面追加data=encodeURIComponent(reportData)，在服务端接受时需要decodeURIComponent，默认为false。（小程序只能用wx.request上报的方式，也就是xhr，而且走img请求的话，url是有字符长度限制的，所以推荐走xhr） |
-|          `silentXhr`           | `boolean` | `false`    | 默认会监控xhr，为true时，将不再监控                          |
-|         `silentFetch`          | `boolean` | `false`    | 默认会监控fetch，为true时，将不再监控                        |
-|        `silentConsole`         | `boolean` | `false`    | 默认会监控console，为true时，将不再监控                      |
-|          `silentDom`           | `boolean` | `false`    | 默认会监听click事件，当用户点击的标签不是body时就会被放入breadcrumb，为true，将不在监听 |
-|        `silentHistory`         | `boolean` | `false`    | 默认会监控popstate、pushState、replaceState，为true时，将不再监控 |
-|         `silentError`          | `boolean` | `false`    | 默认会监控error，为true时，将不在监控                        |
-|   `silentUnhandledrejection`   | `boolean` | `false`    | 默认会监控unhandledrejection，为true时，将不在监控           |
-|       `silentHashchange`       | `boolean` | `false`    | 默认会监控hashchange，为true时，将不在监控                   |
+| `useImgUpload` | `boolean` | `false` | Default value is false.Report by img way when set true.`data=encodeURIComponent(reportData)` will be appended after dsn.You need `decodeURIComponent` in server end. |
+|          `silentXhr`           | `boolean` | `false`    | xhr will be monitored by defaut.Will not monitor when set true |
+|         `silentFetch`          | `boolean` | `false`    | fetch will be monitored by defaut.Will not monitor when set true. |
+|        `silentConsole`         | `boolean` | `false`    | console will be monitored by defaut.Will not monitor when set true. |
+|          `silentDom`           | `boolean` | `false`    | click event will be monitored by defaut.When the label clicked by the user is not the body,it will be put into the breadcrumb stack .Will not monitor when set true. |
+|        `silentHistory`         | `boolean` | `false`    | `popstate、pushState、replaceState` will be monitored by defaut.Will not monitor when set true. |
+|         `silentError`          | `boolean` | `false`    | error will be monitored by defaut.Will not monitor when set true. |
+|   `silentUnhandledrejection`   | `boolean` | `false`    | unhandledrejection will be monitored by defaut.Will not monitor when set true. |
+|       `silentHashchange`       | `boolean` | `false`    | Hashchange will be monitored by defaut.Will not monitor when set true. |
 
 
 ### browser hooks

@@ -28,8 +28,6 @@ yarn add @mitojs/react @mitojs/browser
 
 ## 🥳 Usage
 
-### Configure
-
 
 ```js
 import React from 'react'
