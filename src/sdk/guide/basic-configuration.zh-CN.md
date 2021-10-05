@@ -9,7 +9,7 @@ nav:
 
 # 基础配置
 
-**以下是基础配置,[@mitojs/browser](./browser) 和 [@mitojs/wx-mini](./wx-mini.md) 都可以传入使用 😎**
+**以下是基础配置,[@mitojs/browser](./browser.zh-CN.md) 和 [@mitojs/wx-mini](./wx-mini.md) 都可以传入使用 😎**
 
 ## 基础属性
 

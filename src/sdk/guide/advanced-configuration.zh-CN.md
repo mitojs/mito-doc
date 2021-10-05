@@ -9,7 +9,7 @@ nav:
 
 # 高级配置
 
-**The following is base options, both of [@mitojs/browser](./browser) and [@mitojs/wx-mini](./wx-mini.md) can use 😎**
+**以下是高级配置,[@mitojs/browser](./browser.zh-CN.md) 和 [@mitojs/wx-mini](./wx-mini.md) 都可以传入使用 😎**
 
 ## 属性
 
