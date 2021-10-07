@@ -69,7 +69,7 @@ can collect the following user behavior
 
 ### DIY your weixin miniprograme track SDK
 
-[@mitojs/wx-mini] just provider some hooks and report method because of the track is too business。However,you can DIY track SDK for yourself with those hooks.
+[@mitojs/wx-mini](./wx-mini.md) just provider some hooks and report method because of the track is too business。However,you can DIY track SDK for yourself with those hooks.
 
 ## 😃 monitoring platform(mito admin with mock data)
 
