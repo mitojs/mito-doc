@@ -126,8 +126,63 @@ MITO.init({
 ```
 
 
-## mito instance
+## multiple instances
+start with version `2.1.28`,`mitojs` changed to multiple instances.Configuration items and hooks are isolated under each instance.Property and data are also isolated under each instance.
 
+
+```js
+const MitoInstance = MITO.init({
+  debug: true,
+  maxBreadcrumbs: 100,
+  dsn: 'http://www.test.com/upload',
+})
+
+
+const MitoInstance_two = MITO.init({
+  debug: true,
+  maxBreadcrumbs: 20,
+  dsn: 'http://www.test.com/two/upload',
+})
+```
+
+### MitoInstance.breadcrumb
+* The storage class for the user behavior that allows you to retrieve information collectd by the SDK
+```js
+const breadcrumbStack = MitoInstance.breadcrumb.getStack()
+```
+
+* you can append data in breadcrumb stack
+```js
+interface BreadcrumbPushData {
+  /**
+   * 事件类型
+   */
+  type: BreadcrumbTypes
+  data: any
+  /**
+   * 分为user action、debug、http、
+   */
+  category?: BREADCRUMBCATEGORYS
+  time?: number
+  level: Severity
+}
+MitoInstance.breadcrumb.push(data: BreadcrumbPushData)
+```
+Of cause you can not follow the declaration type to push.However,the same data structure is recommended for traversal.
+
+* clear breadcrumb
+`MitoInstance.breadcrumb.clear()`
+
+###  MitoInstance.getOptions()
+This mehtod retrieves all configuration items that you currently pass in
+
+### MitoInstance.transport 
+* you can directly call `send` method to upload the data <Badge>not recommended</Badge>
+
+first param is the data what you want to report,second param is breadcrumb stack
+
+
+`MitoInstance.transport.send(yourData, MitoInstance.breadcrumb.getStack())`
 
 
 ## manual reporting

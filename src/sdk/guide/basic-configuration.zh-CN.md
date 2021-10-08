@@ -123,7 +123,7 @@ MITO.init({
 })
 ```
 
-## mito多实例
+## 多实例
 从版本`2.1.28`开始，`mitojs`就升级成了多实例，每个实例下的配置项和hooks都是隔离的，每个实例下的所有属性和数据也是隔离。配置多个实例，方便在多个业务方之间定制不同的需求，还可以上报到不同`dsn`
 
 ```js
@@ -131,6 +131,13 @@ const MitoInstance = MITO.init({
   debug: true,
   maxBreadcrumbs: 100,
   dsn: 'http://www.test.com/upload',
+})
+
+
+const MitoInstance_two = MITO.init({
+  debug: true,
+  maxBreadcrumbs: 20,
+  dsn: 'http://www.test.com/two/upload',
 })
 ```
 
