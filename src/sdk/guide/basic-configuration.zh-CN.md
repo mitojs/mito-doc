@@ -175,8 +175,7 @@ MitoInstance.breadcrumb.push(data: BreadcrumbPushData)
 
 
 ### MitoInstance.log  <Badge>推荐</Badge>
-you can call `log` function in anywhere with mito instance
-
+你可以在任何地方通过`mito`的实例调用`log`
 ```js
 interface LogTypes {
   message?: string | number | Object
@@ -200,7 +199,7 @@ MitoInstance.log({
 ```
 
 
-Sometime we need to report business information or track information in business code,then we can use `MitoInstance.log`.The following example is that report abnormal information if the http interface is abnoraml
+有时候我们需要在业务代码中上报业务信息或者埋点信息，这时可以使用`MitoInstance.log`。下面的示例展示了当http请求出错时手动上报
 ```js
 $api.getPayStatus().then(res => {
   if (res.success) {
@@ -221,7 +220,7 @@ $api.getPayStatus().then(res => {
 })
 ```
 
-It's also can statistical PV and UV of uses of each function.Such as the following example is track in ActivePage function,UV statistics need to rely on `trackerId`[trackerId configuration](#backtrackerid-string--number)
+也可以每个功能的收集PV和UV。比如下面的示例：在`ActivePage`函数中埋点，UV统计是依赖于`trackerId`[trackerId configuration](#backtrackerid-string--number)
 ```js
 /**
  * react hook component:ActivePage
