@@ -1,6 +1,6 @@
 ---
 title: sponsor
-order: 5
+order: 3
 toC: menu
 nav:
   title: SDK
