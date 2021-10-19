@@ -15,7 +15,7 @@ nav:
 
 [github discussions](https://github.com/mitojs/mitojs/discussions)
 
-<img src="https://files.catbox.moe/622wfx.jpg" width="460" height="600">
+<img src="https://files.catbox.moe/qvlloj.jpg" width="460" height="600">
 
 
 **有任何问题可在群中抛出，如果交流群二维码失效，可直接加我微信，我会拉进群**
