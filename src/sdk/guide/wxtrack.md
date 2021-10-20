@@ -18,21 +18,50 @@ nav:
 ### 无痕埋点
 * 页面无痕
 
-如果想做页面无痕，则需要在`mito`暴露出的`pageOnShow`和`pageOnHide`中进行无痕埋点，`pageOnShow`也就是wx中原生的`pageOnShow`事件，这里说明一下，`mitojs/wx-mini`中的`pageOnShow`是在原生的`pageOnShow`执行完后才执行的。比如如下的伪代码：
+如果想做页面无痕，则需要在`mito`暴露出的`pageOnShow`和`pageOnHide`中进行无痕埋点，`pageOnShow`也就是wx中原生的`pageOnShow`事件，这里说明一下，`mitojs/wx-mini`中的`pageOnShow`是在原生的`pageOnShow`执行完后才执行的。比如以下场景
+
+场景一：需要上报页面的曝光时长和PV
+
+做法：在页面刚加载时记录开始时间`startTime`并将当前路由记住，在页面切换时用当前时间减去开始时间:`Date.now() - startTime`，并连带上个页面的路由上报，以下是代码示例：
 
 ```js
-function pageOnShow(page: IWxPageInstance) {
-  // 进入页面埋点
-}
-function pageOnHide(page: IWxPageInstance) {
-  // 离开页面埋点
-}
-MITO.init({
-  trackDsn:''
+const MitoInstance = MITO.init({
   pageOnShow,
   pageOnHide
 })
+wx.MitoInstance = MitoInstance
+
+const currentPage = {
+  startTime: 0,
+  page: null
+}
+function pageOnShow(page) {
+  // 进入页面埋点
+  wx.MitoInstance.trackSend({
+    // 可自定义
+    actionType: 'PAGE',
+    route: page.route
+  })
+  currentPage.startTime = Date.now()
+  currentPage.page = page
+}
+function pageOnHide(page) {
+  // 离开页面埋点
+  const endTime = Date.now()
+  const elapsedTime = endTime - currentPage.startTime
+  // 拿到信息并上报
+  console.log('currentPage', currentPage)
+  wx.MitoInstance.trackSend({
+    // 可自定义
+    actionType: 'DURATION',
+    // 曝光时间
+    elapsedTime,
+    // 页面路由
+    route: currentPage.page.route
+  })
+}
 ```
+
 * 事件无痕
 
 由于微信小程序拿不到点击节点的`tagName`、`domPath`（从根路径到该节点的路径），所以无法对按钮做唯一性校验，也就无法做抛出比较有用的hook（如果有小伙伴有任何方法的话可以微信告诉我，不胜感激，[微信二维码](https://github.com/mitojs/mitojs#issue)）
