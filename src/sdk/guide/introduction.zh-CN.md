@@ -38,7 +38,7 @@ const MitoInstance = init({
 可收集以下错误信息：
 
 * 代码错误
-* [onhandlerejection](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/unhandledrejection_event)
+* [unhandledrejection](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/unhandledrejection_event)
 * 资源错误
 * http请求错误
 * 路由切换错误
