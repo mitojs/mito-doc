@@ -113,7 +113,7 @@ npm i @mitojs/wx-mini @mitojs/react
 |         `silentAppOnError`         | `boolean` | `false`    | 默认会监控微信小程序的error，为true时，将不在监控                        |
 |   `silentAppOnUnhandledRejection`   | `boolean` | `false`    | 默认会监控微信小程序的unhandledrejection，为true时，将不在监控           |
 |    `silentPageOnShareAppMessage`    | `boolean` | `false`    | 默认会监控微信小程序的微信小程序App的onShareAppMessage，为true时，将不在监听（为false时页面会开启分享功能） |
-| silentPageOnShareTimeline | `boolean` | `false` | 默认会监控微信小程序的微信小程序App的onShareTimeline，为true时，将不在监听（为false时页面会开启分享功能） |
+| `silentPageOnShareTimeline` | `boolean` | `false` | 默认会监控微信小程序的微信小程序App的onShareTimeline，为true时，将不在监听（为false时页面会开启分享功能） |
 
 ## WxHookOptionsType
   ```js
