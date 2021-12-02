@@ -112,7 +112,8 @@ npm i @mitojs/wx-mini @mitojs/react
 | `silentRoute` | `boolean` | `false` | 默认会监控微信小程序App的路由跳转，为true时，将不在监控 |
 |         `silentAppOnError`         | `boolean` | `false`    | 默认会监控微信小程序的error，为true时，将不在监控                        |
 |   `silentAppOnUnhandledRejection`   | `boolean` | `false`    | 默认会监控微信小程序的unhandledrejection，为true时，将不在监控           |
-|    `silentAppOnPageNotFound`    | `boolean` | `false`    | 默认会监控微信小程序的微信小程序App的onPageNotFound，为true时，将不在监控 |
+|    `silentPageOnShareAppMessage`    | `boolean` | `false`    | 默认会监控微信小程序的微信小程序App的onShareAppMessage，为true时，将不在监听（为false时页面会开启分享功能） |
+| silentPageOnShareTimeline | `boolean` | `false` | 默认会监控微信小程序的微信小程序App的onShareTimeline，为true时，将不在监听（为false时页面会开启分享功能） |
 
 ## WxHookOptionsType
   ```js
@@ -232,14 +233,14 @@ MITO.init({
    * @memberof WxHookOptionsType
    */
   ```
-### onPageNotFound(data: WechatMiniprogram.OnPageNotFoundCallbackResult): void
+### appOnPageNotFound(data: WechatMiniprogram.OnPageNotFoundCallbackResult): void
 
-**示例：**在`Page`的`onPageNotFound`中打印并输出入参`
+**示例：**在`Page`的`appOnPageNotFound`中打印并输出入参`
 ```js
 MITO.init({
   ...
-  onPageNotFound(data){
-  	console.log('mito onPageNotFound', data)
+  appOnPageNotFound(data){
+  	console.log('mito appOnPageNotFound', data)
   }
 })
 ```
@@ -359,20 +360,20 @@ MITO.init({
 
   ```js
   /**
-   * 先执行hook:onShareAppMessage再执行wx小程序的Page下的onShareAppMessage
+   * 先执行hook:pageOnShareAppMessage再执行wx小程序的Page下的pageOnShareAppMessage
    *
    * @param {(WechatMiniprogram.Page.IShareAppMessageOption & IWxPageInstance)} options
    * @memberof WxHookOptionsType
    */
   ```
-### onShareAppMessage(options: WechatMiniprogram.Page.IShareAppMessageOption & IWxPageInstance): void
+### pageOnShareAppMessage(options: WechatMiniprogram.Page.IShareAppMessageOption,page: IWxPageInstance): void
 
-**示例：**在`Page`的`onShareAppMessage`中打印并输出入参`
+**示例：**在`Page`的`pageOnShareAppMessage`中打印并输出入参`
 ```js
 MITO.init({
   ...
-  onShareAppMessage(options){
-  	console.log('mito onShareAppMessage', options)
+  pageOnShareAppMessage(options, page){
+  	console.log('mito pageOnShareAppMessage', options)
   }
 })
 ```
@@ -388,14 +389,14 @@ MITO.init({
    * @memberof WxHookOptionsType
    */
   ```
-### onShareTimeline(page: IWxPageInstance): void
+### pageOnShareTimeline(options: WechatMiniprogram.Page.IShareAppMessageOption, page: IWxPageInstance): void
 
-**示例：**在`Page`的`onShareTimeline`中打印并输出入参`
+**示例：**在`Page`的`pageOnShareTimeline`中打印并输出入参`
 ```js
 MITO.init({
   ...
-  onShareTimeline(page){
-  	console.log('mito onShareTimeline', page)
+  pageOnShareTimeline(options, page){
+  	console.log('mito pageOnShareTimeline', options, page)
   }
 })
 ```
@@ -410,14 +411,14 @@ MITO.init({
    * @memberof WxHookOptionsType
    */
   ```
-### onTabItemTap(options: WechatMiniprogram.Page.ITabItemTapOption & IWxPageInstance): void
+### pageOnTabItemTap(options: WechatMiniprogram.Page.ITabItemTapOption,page: IWxPageInstance): void
 
-**示例：**在`Page`的`onTabItemTap`中打印并输出入参`
+**示例：**在`Page`的`pageOnTabItemTap`中打印并输出入参`
 ```js
 MITO.init({
   ...
-  onTabItemTap(options){
-  	console.log('mito onTabItemTap', options)
+  pageOnTabItemTap(options){
+  	console.log('mito pageOnTabItemTap', options)
   }
 })
 ```
