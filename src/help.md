@@ -15,9 +15,19 @@ nav:
 
 [github discussions](https://github.com/mitojs/mitojs/discussions)
 
-<img src="https://files.catbox.moe/qvlloj.jpg" width="460" height="600">
+<img src="https://tva1.sinaimg.cn/large/008i3skNly1gxkok9p5yhj30tc123juk.jpg" width="460" height="600">
 
 
 **有任何问题可在群中抛出，如果交流群二维码失效，可直接加我微信，我会拉进群**
 
-<img src="https://files.catbox.moe/j8wnqz.jpg" width="200" height="200"></img>
+<img src="https://tva1.sinaimg.cn/large/008i3skNly1gxkokp0j1mj30tc123tb5.jpg" width="200" height="260"></img>
+
+微信: `cjinhuo`
+
+# 掘金
+
+https://juejin.cn/user/3421335917434744
+
+# 个人博客
+
+https://cjinhuo.netlify.app/

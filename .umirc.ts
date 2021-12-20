@@ -30,11 +30,15 @@ export default defineConfig({
     'en-US': [
       null,
       { title: 'GitHub', path: 'https://github.com/mitojs/mitojs' },
+      { title: 'juejin', path: 'https://juejin.cn/user/3421335917434744' },
+      { title: 'blog', path: 'https://cjinhuo.netlify.app/' },
       { title: 'Changelog', path: 'https://github.com/mitojs/mitojs/releases' },
     ],
     'zh-CN': [
       null,
       { title: 'GitHub', path: 'https://github.com/mitojs/mitojs' },
+      { title: '掘金', path: 'https://juejin.cn/user/3421335917434744' },
+      { title: '个人博客', path: 'https://cjinhuo.netlify.app/' },
       { title: '更新日志', path: 'https://github.com/mitojs/mitojs/releases' },
     ],
   },
