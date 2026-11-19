@@ -1,19 +1,46 @@
-name: github pages
+name: Verify and publish documentation
 
 on:
+  pull_request:
   push:
-    branches:
-      - master # default branch
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  deploy:
-    runs-on: ubuntu-18.04
+  verify:
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v2
-      - run: npm install
-      - run: npm run build
-      - name: Deploy docs
-        uses: peaceiris/actions-gh-pages@v3
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
         with:
-          github_token: ${{ secrets.CI_TOKEN }}
-          publish_dir: ./docs
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - run: npm run test:browser
+        env:
+          PLAYWRIGHT_CHANNEL: chrome
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        with:
+          path: dist
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    needs: verify
+    runs-on: ubuntu-24.04
+    concurrency: github-pages
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.pages.outputs.page_url }}
+    steps:
+      - name: Publish the verified static build
+        id: pages
+        uses: actions/deploy-pages@v4

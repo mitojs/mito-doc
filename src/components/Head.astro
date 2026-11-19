@@ -1,0 +1,21 @@
+---
+import DefaultHead from '@astrojs/starlight/components/Head.astro';
+import { legacyRoutes } from '../legacy-routes.mjs';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<DefaultHead />
+<script define:vars={{ legacyRoutes, base }}>
+  function openLegacyBookmark() {
+    if (!location.hash.startsWith('#/')) return;
+    const old = location.hash.slice(1);
+    const [routeAndQuery, ...anchor] = old.split('#');
+    const [pathname, ...query] = routeAndQuery.split('?');
+    const key = pathname.replace(/\/+$/, '') || '/';
+    if (!Object.hasOwn(legacyRoutes, key)) return;
+    const search = query.length ? '?' + query.join('?') : location.search;
+    const hash = anchor.length ? '#' + anchor.join('#') : '';
+    location.replace(base + legacyRoutes[key] + search + hash);
+  }
+  openLegacyBookmark();
+  window.addEventListener('hashchange', openLegacyBookmark);
+</script>
