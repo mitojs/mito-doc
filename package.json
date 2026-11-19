@@ -1,41 +1,26 @@
 {
+  "name": "mitojs-documentation",
+  "version": "1.0.0",
   "private": true,
-  "name": "mito",
-  "version": "0.0.1",
+  "type": "module",
   "scripts": {
-    "start": "dumi dev",
-    "build": "dumi build",
-    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
-    "test": "umi-test",
-    "test:coverage": "umi-test --coverage",
-    "commit": "git add . && git cz"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "node --test tests/site.test.mjs",
+    "test:browser": "playwright test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mitojs/mito-doc",
-    "branch": "master",
-    "platform": "github"
+  "engines": {
+    "node": ">=24 <25"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,jsx,less,md,json}": [
-      "prettier --write"
-    ],
-    "*.ts?(x)": [
-      "prettier --parser=typescript --write"
-    ]
+  "dependencies": {
+    "@astrojs/markdown-satteri": "0.4.10",
+    "@astrojs/starlight": "0.43.1",
+    "astro": "7.4.13"
   },
   "devDependencies": {
-    "dumi": "^1.0.13",
-    "lint-staged": "^10.0.7",
-    "prettier": "^2.2.1",
-    "yorkie": "^2.0.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "@mitojs/browser": "4.0.0",
+    "@playwright/test": "1.65.0",
+    "cheerio": "1.1.2"
   }
 }

@@ -1,0 +1,209 @@
+{
+  "sdk/guide/advanced-configuration": [
+    "advanced-configuration",
+    "advanced-field",
+    "enabletraceid-boolean",
+    "includehttpurltraceidregexp-regexp",
+    "traceidfieldname-string",
+    "filterxhrurlregexp-regexp",
+    "throttledelaytime-number",
+    "advanced-hooks",
+    "configreporturlevent-transportdatatype-url-string-string",
+    "backtrackerid-string--number"
+  ],
+  "sdk/guide/basic-configuration": [
+    "basic-configuration",
+    "basic-field",
+    "dsn-string",
+    "disabled-boolean",
+    "apikey-string",
+    "debug-boolean",
+    "maxduplicatecount-number",
+    "maxbreadcrumbs-number",
+    "vue-vueinstance",
+    "basic-hooks",
+    "beforedatareportevent-transportdatatype-promisetransportdatatype--null--cancel--transportdatatype--any--cancel--null",
+    "beforepushbreadcrumbbreadcrumb-breadcrumb-hint-breadcrumbpushdata-breadcrumbpushdata--cancel",
+    "beforeappajaxsendconfig-irequestheaderconfig-setrequestheader-ibeforeappajaxsendconfig-void",
+    "multiple-instances",
+    "mitoinstancebreadcrumb",
+    "mitoinstancegetoptions",
+    "mitoinstancetransport",
+    "manual-reporting"
+  ],
+  "sdk/guide/browser": [
+    "mitojsbrowser",
+    "install",
+    "usage",
+    "using-with-cdn",
+    "opitons",
+    "browser-fields",
+    "browser-hooks",
+    "configreportxhrxhr-xmlhttprequest-reportdata-any-void"
+  ],
+  "sdk/guide/introduction": [
+    "whats-mito",
+    "quick-start",
+    "️-install",
+    "-usage",
+    "-what-can-it-do",
+    "collecting-error-information",
+    "collecting-user-behavior",
+    "support-platforms",
+    "demoexperience-the-sdk-to-collect-data",
+    "diy-your-weixin-miniprograme-track-sdk",
+    "-monitoring-platformmito-admin-with-mock-data"
+  ],
+  "sdk/guide/react": [
+    "mitojsreact",
+    "️-attention",
+    "️-install",
+    "-usage",
+    "add-errorboundary",
+    "multiple-instances",
+    "use-in-wx-mini",
+    "using-cdn-in-browser"
+  ],
+  "sdk/guide/vue": [
+    "mitojsvue",
+    "️-attention",
+    "️-install",
+    "-usage",
+    "vue2x",
+    "vue3x"
+  ],
+  "sdk/support/implemention": [
+    "implemention",
+    "generate-errorid"
+  ],
+  "zh-CN/help": [
+    "discussions",
+    "掘金",
+    "个人博客"
+  ],
+  "zh-CN/sdk/guide/advanced-configuration": [
+    "高级配置",
+    "属性",
+    "enabletraceid-boolean",
+    "includehttpurltraceidregexp-regexp",
+    "traceidfieldname-string",
+    "filterxhrurlregexp-regexp",
+    "throttledelaytime-number",
+    "钩子函数",
+    "configreporturlevent-transportdatatype-url-string-string",
+    "backtrackerid-string--number"
+  ],
+  "zh-CN/sdk/guide/basic-configuration": [
+    "基础配置",
+    "基础属性",
+    "dsn-string",
+    "disabled-boolean",
+    "apikey-string",
+    "debug-boolean",
+    "maxduplicatecount-number",
+    "maxbreadcrumbs-number",
+    "vue-vueinstance",
+    "基础钩子",
+    "beforedatareportevent-transportdatatype-promisetransportdatatype--null--cancel--transportdatatype--any--cancel--null",
+    "beforepushbreadcrumbbreadcrumb-breadcrumb-hint-breadcrumbpushdata-breadcrumbpushdata--cancel",
+    "beforeappajaxsendconfig-irequestheaderconfig-setrequestheader-ibeforeappajaxsendconfig-void",
+    "多实例",
+    "mitoinstancebreadcrumb",
+    "mitoinstancegetoptions",
+    "mitoinstancetransport",
+    "mitoinstancelog",
+    "mitoinstancesdk_version"
+  ],
+  "zh-CN/sdk/guide/browser": [
+    "mitojsbrowser",
+    "install",
+    "usage",
+    "using-with-cdn",
+    "opitons",
+    "browser-fields",
+    "browser-hooks",
+    "configreportxhrxhr-xmlhttprequest-reportdata-any-void"
+  ],
+  "zh-CN/sdk/guide/introduction": [
+    "什么是-mito-",
+    "快速开始",
+    "️-install",
+    "-usage",
+    "-它能做些什么",
+    "错误信息收集",
+    "用户行为收集",
+    "支持的平台",
+    "demo体验sdk收集数据",
+    "小程序埋点自研",
+    "-监控平台监控平台的demo"
+  ],
+  "zh-CN/sdk/guide/react": [
+    "mitojsreact",
+    "️-注意",
+    "️-install",
+    "-usage",
+    "添加-errorboundary-组件",
+    "多实例",
+    "在微信小程序中使用",
+    "使用cdn方式"
+  ],
+  "zh-CN/sdk/guide/vue": [
+    "mitojsvue",
+    "️-注意",
+    "️-install",
+    "-usage",
+    "vue2x",
+    "vue3x",
+    "使用cdn方式"
+  ],
+  "zh-CN/sdk/guide/wx-mini": [
+    "mitojswx-mini",
+    "️-安装",
+    "-使用",
+    "-使用本地文件",
+    "uni-appvue框架",
+    "️-安装-1",
+    "使用",
+    "remaxreact框架",
+    "️-安装-2",
+    "options",
+    "wxsilentoptionstype",
+    "wxhookoptionstype",
+    "configreportwxrequestevent-transportdatatype--any-partialwechatminiprogramrequestoption",
+    "apponlaunchoptions-wechatminiprogramapplaunchshowoption-void",
+    "apponshowoptions-wechatminiprogramapplaunchshowoption-void",
+    "apponhide-void",
+    "apponpagenotfounddata-wechatminiprogramonpagenotfoundcallbackresult-void",
+    "pageonloadpage-iwxpageinstance-void",
+    "pageonshowpage-iwxpageinstance-void",
+    "pageonreadypage-iwxpageinstance-void",
+    "pageonunloadpage-iwxpageinstance-void",
+    "pageonhidepage-iwxpageinstance-void",
+    "pageonshareappmessageoptions-wechatminiprogrampageishareappmessageoptionpage-iwxpageinstance-void",
+    "pageonsharetimelineoptions-wechatminiprogrampageishareappmessageoption-page-iwxpageinstance-void",
+    "pageontabitemtapoptions-wechatminiprogrampageitabitemtapoptionpage-iwxpageinstance-void",
+    "wxnavigatetominiprogramoptions-wechatminiprogramnavigatetominiprogramoption-wechatminiprogramnavigatetominiprogramoption",
+    "triggerwxevente-wechatminiprogrambaseevent-void"
+  ],
+  "zh-CN/sdk/guide/wxtrack": [
+    "wx-mini-track",
+    "小程序hooks",
+    "无痕埋点",
+    "手动埋点",
+    "tracksend"
+  ],
+  "zh-CN/sdk/support/architecture": [
+    "architecture",
+    "browser-implement"
+  ],
+  "zh-CN/sdk/support/implemention": [
+    "源码实现",
+    "生成错误id"
+  ],
+  "zh-CN/sdk/support/sponsor": [
+    "sponsor",
+    "二维码",
+    "支付宝",
+    "微信"
+  ]
+}

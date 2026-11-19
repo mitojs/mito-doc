@@ -1,0 +1,15 @@
+---
+import DefaultFooter from '@astrojs/starlight/components/Footer.astro';
+const zh = Astro.locals.starlightRoute.lang === 'zh-CN';
+---
+<DefaultFooter />
+<footer class="project-footer">
+  <span>Copyright © 2021<br />Powered by <a href="https://github.com/mitojs">mitojs</a></span>
+  <a href="https://github.com/mitojs/mitojs/releases">{zh ? '更新日志' : 'Changelog'}</a>
+  <a href="https://juejin.cn/user/3421335917434744">{zh ? '掘金' : 'Juejin'}</a>
+  <a href="https://cjinhuo.netlify.app/">{zh ? '个人博客' : 'Personal blog'}</a>
+</footer>
+<style>
+  .project-footer { display:flex; flex-wrap:wrap; gap:.5rem 1.25rem; border-top:1px solid var(--sl-color-gray-5); padding-top:1rem; color:var(--sl-color-gray-3); font-size:var(--sl-text-sm); }
+  a { color:inherit; }
+</style>
