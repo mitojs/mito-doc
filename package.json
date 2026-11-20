@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build --force",
     "preview": "astro preview",
     "test": "node --test tests/site.test.mjs",
     "test:browser": "playwright test"
@@ -16,6 +16,7 @@
   "dependencies": {
     "@astrojs/markdown-satteri": "0.4.10",
     "@astrojs/starlight": "0.43.1",
+    "@fontsource-variable/geist": "5.3.0",
     "astro": "7.4.13"
   },
   "devDependencies": {

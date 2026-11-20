@@ -20,7 +20,7 @@ npm install @mitojs/browser@4.0.0
 
 Save the following as `index.html`. The SDK loads from the installed package. The `dsn` points to the same-origin `/reports` endpoint that the local server will receive.
 
-```html
+```html title="index.html"
 <!doctype html>
 <html lang="en">
 <meta charset="utf-8">
@@ -40,7 +40,7 @@ Save the following as `index.html`. The SDK loads from the installed package. Th
 
 Save this as `receiver.mjs` next to `index.html`. It serves the example and prints the SDK version, event type and message for each report.
 
-```js
+```js title="receiver.mjs"
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';

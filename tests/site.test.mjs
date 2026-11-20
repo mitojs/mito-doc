@@ -41,10 +41,10 @@ test('each article has a real translation, static content and a search preview',
   }
 });
 
-test('all internal links, fragments and images resolve under the Pages subpath', () => {
+test('all internal links, fragments and page assets resolve under the Pages subpath', () => {
   for (const [page, $] of published) {
-    for (const el of $('a[href], img[src]').toArray()) {
-      const href = $(el).attr(el.name === 'img' ? 'src' : 'href');
+    for (const el of $('a[href], img[src], script[src], link[rel="stylesheet"][href]').toArray()) {
+      const href = $(el).attr('href') ?? $(el).attr('src');
       const url = new URL(href, page);
       if (url.origin !== base.origin) continue;
       if (/^https:\/\/mitojs\.github\.io\/(react-sdk-demo|vue[23]-sdk-demo|mito-admin-demo)\//.test(href)) continue;

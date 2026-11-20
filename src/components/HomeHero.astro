@@ -1,0 +1,176 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from '@astrojs/starlight/components';
+import Hero from '@astrojs/starlight/components/Hero.astro';
+import scope from '../assets/signal-scope.webp';
+
+const { lang, siteTitleHref } = Astro.locals.starlightRoute;
+const home = new URL(siteTitleHref, Astro.url);
+const isHome = home.pathname === Astro.url.pathname;
+const zh = lang === 'zh-CN';
+const heading = zh ? '平台指南' : 'Platform guides';
+const headingId = zh ? '平台指南' : 'platform-guides';
+const platforms = [
+  { slug: 'browser', label: zh ? '浏览器' : 'Browser', icon: 'window' },
+  { slug: 'react', label: 'React', icon: 'seti:react' },
+  { slug: 'vue', label: 'Vue 2 / Vue 3', icon: 'seti:vue' },
+  { slug: 'wx-mini', label: zh ? '微信小程序' : 'WeChat Mini Programs', icon: 'mobile-android' },
+] as const;
+---
+
+{isHome ? (
+  <>
+    <section class="home-hero" aria-labelledby="_top">
+      <div class="home-intro">
+        <p class="home-kicker"><Icon name="open-book" size="1.1rem" />{zh ? 'mitojs监控文档' : 'Developer docs for mitojs'}</p>
+        <Hero />
+      </div>
+      <div class="scope-art" aria-hidden="true">
+        <Image src={scope} alt="" widths={[360, 600, 900]} sizes="(min-width: 64rem) 31rem, (min-width: 44rem) 40vw, 17rem" width={900} loading="eager" fetchpriority="high" />
+      </div>
+    </section>
+
+    <section class="platform-section" aria-labelledby={headingId}>
+      <h2 id={headingId}>{heading}</h2>
+      <ul class="platform-links">
+        {platforms.map(({ slug, label, icon }) => (
+          <li>
+            <a href={new URL('sdk/guide/' + slug + '/', home).pathname}>
+              <span class="platform-icon"><Icon name={icon} size="1.55rem" /></span>
+              <span class="platform-name">{label}</span>
+              <code>@mitojs/{slug}</code>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </>
+) : <Hero />}
+
+<style>
+  .home-hero {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 1rem;
+    padding: clamp(2rem, 5vw, 4.5rem);
+    overflow: hidden;
+    border: 1px solid var(--theme-line);
+    border-radius: 1.5rem;
+    background: radial-gradient(ellipse at 78% 62%, var(--hero-glow), transparent 58%), var(--hero-surface);
+  }
+  .home-hero::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-image: linear-gradient(var(--hero-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--hero-grid) 1px, transparent 1px);
+    background-size: 1.75rem 1.75rem;
+    mask-image: linear-gradient(105deg, transparent 22%, #000 83%);
+    content: '';
+  }
+  .home-kicker {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    margin: 0 0 1rem;
+    color: var(--sl-color-text-accent);
+    font-size: .875rem;
+    font-weight: 650;
+    letter-spacing: .025em;
+  }
+  .home-intro :global(.hero) { display: block; padding: 0; }
+  .home-intro :global(.stack) { gap: 1.55rem; text-align: start; }
+  .home-intro :global(.copy) { align-items: start; gap: 1rem; }
+  .home-intro :global(h1) {
+    font-size: clamp(4.5rem, 8.4vw, 7.7rem);
+    font-weight: 710;
+    line-height: .9;
+    letter-spacing: -.054em;
+  }
+  .home-intro :global(h1 span) { color: var(--hero-wordmark); }
+  .home-intro :global(.tagline) {
+    max-width: 31rem;
+    color: var(--sl-color-text);
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    line-height: 1.65;
+    text-wrap: balance;
+  }
+  .home-intro :global(.actions) { justify-content: start; gap: .65rem; }
+  .home-intro :global(.sl-link-button) {
+    min-height: 2.8rem;
+    padding: .65rem 1.1rem;
+    border: 1px solid var(--theme-line);
+    border-radius: .65rem;
+    font-size: .95rem;
+    font-weight: 630;
+    line-height: 1.3;
+  }
+  .home-intro :global(.primary) { border-color: transparent; background: var(--button-sky); color: #08324c; }
+  .home-intro :global(.primary:hover) { background: #8ad9ff; }
+  .home-intro :global(.secondary) { background: var(--sl-color-bg); color: var(--sl-color-white); }
+  .home-intro :global(.secondary:hover) { border-color: var(--sl-color-text-accent); }
+  .scope-art { position: relative; display: grid; place-items: center; }
+  .scope-art::before {
+    position: absolute;
+    inset: 22% 10% -1%;
+    z-index: -1;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, var(--hero-glow), transparent 70%);
+    content: '';
+  }
+  .scope-art img { display: block; width: 100%; max-width: 31rem; height: auto; }
+  .platform-section { margin-block-start: clamp(2rem, 4.3vw, 3.5rem); }
+  .platform-section h2 { color: var(--sl-color-white); font-size: var(--home-heading); font-weight: 680; line-height: 1.2; letter-spacing: -.035em; }
+  .platform-links {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .875rem;
+    margin-block: 1.25rem 0;
+    padding: 0;
+    list-style: none;
+  }
+  .platform-links a {
+    display: grid;
+    height: 100%;
+    align-content: start;
+    padding: 1.15rem 1.25rem;
+    border: 1px solid var(--theme-line);
+    border-radius: .9rem;
+    background: var(--sl-color-bg);
+    color: var(--sl-color-white);
+    text-decoration: none;
+  }
+  .platform-links a:hover { border-color: var(--sl-color-text-accent); background: var(--theme-tint); }
+  .platform-icon {
+    display: grid;
+    place-items: center;
+    justify-self: start;
+    width: 2.35rem;
+    height: 2.35rem;
+    margin-bottom: .8rem;
+    border-radius: .6rem;
+    background: var(--sl-color-accent-low);
+    color: var(--sl-color-text-accent);
+  }
+  .platform-name { font-size: 1.075rem; font-weight: 650; line-height: 1.45; }
+  .platform-links code { margin-block-start: .2rem; color: var(--sl-color-gray-3); font-size: .8125rem; }
+  @media (max-width: 58rem) {
+    .platform-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 43.99rem) {
+    .home-hero { grid-template-columns: minmax(0, 1fr); padding: 1.65rem; gap: 1rem; }
+    .home-hero::before { mask-image: linear-gradient(165deg, transparent 10%, #000 93%); }
+    .scope-art img { width: min(78%, 17rem); }
+    .home-kicker { margin-bottom: .8rem; }
+    .home-intro :global(.stack) { gap: 1.2rem; }
+    .platform-links { gap: .65rem; }
+    .platform-links a { padding: 1rem .85rem; }
+  }
+  @media (max-width: 23rem) {
+    .home-hero { padding-inline: 1.2rem; }
+    .home-intro :global(.sl-link-button) { padding-inline: .75rem; }
+  }
+</style>

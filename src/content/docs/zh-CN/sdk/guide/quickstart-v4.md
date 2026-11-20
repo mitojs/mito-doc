@@ -20,7 +20,7 @@ npm install @mitojs/browser@4.0.0
 
 将以下内容保存为 `index.html`。页面使用刚安装的 SDK，`dsn` 指向本地服务器接收上报的同源地址 `/reports`。
 
-```html
+```html title="index.html"
 <!doctype html>
 <html lang="zh-CN">
 <meta charset="utf-8">
@@ -40,7 +40,7 @@ npm install @mitojs/browser@4.0.0
 
 在 `index.html` 旁新建 `receiver.mjs`。它提供示例页面，并打印每份报告的 SDK 版本、事件类型和消息。
 
-```js
+```js title="receiver.mjs"
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';

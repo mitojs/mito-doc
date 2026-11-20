@@ -3,9 +3,28 @@ const { siteTitle, siteTitleHref } = Astro.locals.starlightRoute;
 const logo = import.meta.env.BASE_URL.replace(/\/$/, '') + '/media/brand.jpg';
 ---
 <a href={siteTitleHref} class="brand">
-  <img src={logo} alt="" width="38" height="34" /> <span translate="no">{siteTitle}</span>
+  <img src={logo} alt="" width="38" height="34" />
+  <span translate="no">{siteTitle}</span>
 </a>
 <style>
-  .brand { display: inline-flex; align-items: center; gap: .65rem; color: var(--sl-color-white); font-size: 1.25rem; font-weight: 650; text-decoration: none; }
-  img { width: 2.35rem; height: 2.1rem; object-fit: contain; border-radius: .3rem; }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    color: var(--sl-color-white);
+    font-size: 1.3rem;
+    font-weight: 720;
+    letter-spacing: -.05em;
+    line-height: 1;
+    text-decoration: none;
+  }
+  img {
+    display: block;
+    width: 2.15rem;
+    height: 2rem;
+    object-fit: contain;
+    padding: .12rem;
+    border-radius: .3rem;
+    background: white;
+  }
 </style>

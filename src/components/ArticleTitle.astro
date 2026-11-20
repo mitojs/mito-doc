@@ -1,0 +1,23 @@
+---
+import { Icon } from '@astrojs/starlight/components';
+import PageTitle from '@astrojs/starlight/components/PageTitle.astro';
+
+const { lang, sidebar, siteTitleHref } = Astro.locals.starlightRoute;
+const section = sidebar.find((item) =>
+  item.type === 'group' && item.entries.some((entry) => entry.type === 'link' && entry.isCurrent)
+);
+const zh = lang === 'zh-CN';
+---
+
+<nav class="doc-trail" aria-label={zh ? '文档路径' : 'Breadcrumb'} data-pagefind-ignore>
+  <a href={siteTitleHref}><Icon name="open-book" />{zh ? '文档' : 'Docs'}</a>
+  {section && <><Icon name="right-caret" /><span>{section.label}</span></>}
+</nav>
+<PageTitle />
+
+<style>
+  .doc-trail, .doc-trail a { display: flex; align-items: center; gap: .4rem; }
+  .doc-trail { color: var(--sl-color-gray-3); font-size: .875rem; line-height: 1.5; }
+  .doc-trail a { color: var(--sl-color-text-accent); font-weight: 600; text-decoration: none; }
+  .doc-trail a:hover { text-decoration: underline; }
+</style>
