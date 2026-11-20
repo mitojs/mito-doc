@@ -22,6 +22,24 @@ for (const [locale, query, topic] of [
   });
 }
 
+test('use the theme and language controls from the home page', async ({ page }) => {
+  await page.goto('./');
+  const theme = page.locator('header starlight-theme-select select');
+  await expect(theme).toBeVisible();
+  await theme.selectOption('dark');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await page.getByRole('link', { name: '切换到简体中文' }).click();
+  await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await theme.selectOption('light');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  await page.locator('.platform-links a[href$="/react/"]').click();
+  const trail = page.getByRole('navigation', { name: '文档路径' });
+  await expect(trail).toContainText('平台接入');
+  await trail.getByRole('link', { name: '文档' }).click();
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('MITOJS');
+});
+
 test('switch languages on the same page and copy the install command', async ({ page, context, baseURL }) => {
   await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: new URL(baseURL).origin });
   await page.goto('sdk/guide/quickstart-v4/');

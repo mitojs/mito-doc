@@ -1,4 +1,6 @@
 ---
+import { Icon } from '@astrojs/starlight/components';
+
 const { lang, head } = Astro.locals.starlightRoute;
 const other = lang === 'zh-CN' ? 'en' : 'zh-CN';
 const alternate = head.find(({ tag, attrs }) => tag === 'link' && attrs?.hreflang === other);
@@ -7,10 +9,20 @@ const url = alternate?.attrs?.href;
 {typeof url === 'string' && (
   <a class="language-link" href={new URL(url).pathname} hreflang={other} lang={other}
      aria-label={other === 'en' ? 'Switch to English' : '切换到简体中文'}>
+    <Icon name="translate" />
     {other === 'en' ? 'English' : '简体中文'}
   </a>
 )}
 <style>
-  .language-link { white-space:nowrap; color:var(--sl-color-white); text-decoration:none; font-size:var(--sl-text-sm); }
-  .language-link:hover { color:var(--sl-color-text-accent); text-decoration:underline; }
+  .language-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    min-height: 2.25rem;
+    white-space: nowrap;
+    color: var(--sl-color-gray-2);
+    text-decoration: none;
+    font-size: var(--sl-text-sm);
+  }
+  .language-link:hover { color: var(--sl-color-text-accent); text-decoration: underline; }
 </style>
