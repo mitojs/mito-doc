@@ -63,11 +63,7 @@ const MitoInstance = init({
 
 ### Demo:体验SDK收集数据
 
-* [react-sdk-demo](https://mitojs.github.io/react-sdk-demo/):Use @mitojs/react  in react@next
-
-* [vue3-sdk-demo](https://mitojs.github.io/vue3-sdk-demo/):Use @mitojs/vue in Vue3.x
-
-* [vue2-sdk-demo](https://mitojs.github.io/vue2-sdk-demo/):Use @mitojs/vue in Vue2.x
+[React 19：错误边界与请求追踪](https://mitojs.github.io/react-sdk-demo/) · [Vue 3：组件异常与上报观察窗](https://mitojs.github.io/vue3-sdk-demo/) · [Vue 2：错误监控与 HTTP 请求](https://mitojs.github.io/vue2-sdk-demo/)。三个演示都在浏览器本地接收 SDK 真实生成的测试上报。
 
 ### 小程序埋点自研
 
@@ -77,6 +73,8 @@ const MitoInstance = init({
 ## 😃 监控平台(监控平台的Demo)
 
 
+
+[打开模拟监控后台](https://mitojs.github.io/mito-admin-demo/)查看固定案例。这些是模拟报告，不是实时 SDK 上报或生产数据。
 
 [vue-admin-demo](https://mitojs.github.io/mito-admin-demo/#/errors/1/info): show a HTTP_ERROR in vue platform
 
