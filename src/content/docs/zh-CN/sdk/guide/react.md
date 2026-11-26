@@ -11,6 +11,10 @@ sidebar:
 
 
 
+## React 19 在线演示
+
+在 [MitoJS React 19 错误监控演示](https://mitojs.github.io/react-sdk-demo/) 触发组件渲染错误，观察 ErrorBoundary 的备用界面，再查看 SDK 实际生成的本地上报。示例固定使用 MitoJS 4.0.0，不需要自己的后端。
+
 ## ⚠️ 注意
 
 **如果你想要在微信小程序里面引入，请把 `@mitojs/browser` 替换成 `@miotjs/wx-mini`**

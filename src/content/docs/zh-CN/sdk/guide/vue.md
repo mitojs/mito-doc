@@ -11,6 +11,13 @@ sidebar:
 
 
 
+## Vue 2 和 Vue 3 在线演示
+
+- [Vue 2 错误监控和请求追踪](https://mitojs.github.io/vue2-sdk-demo/)：将 Vue 构造器传给 SDK，查看 HTTP 500 和行为轨迹。
+- [Vue 3 错误监控和上报观察窗](https://mitojs.github.io/vue3-sdk-demo/)：将 createApp() 返回的实例传给 SDK，触发组件事件错误并展开上报 JSON。
+
+两套示例都使用 MitoJS 4.0.0；上报在当前浏览器接收，不发送给生产监控。
+
 ## ⚠️ 注意
 
 **如果你想要在微信小程序里面引入，请把 `@mitojs/browser` 替换成 `@miotjs/wx-mini`**

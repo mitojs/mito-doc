@@ -11,6 +11,13 @@ sidebar:
 
 
 
+## Try the Vue 2 and Vue 3 demos
+
+- [Vue 2 error monitoring and request tracing](https://mitojs.github.io/vue2-sdk-demo/): pass the Vue constructor to the SDK and inspect an HTTP 500 report and its breadcrumbs.
+- [Vue 3 error monitoring and report inspector](https://mitojs.github.io/vue3-sdk-demo/): pass the app from createApp(), trigger a component error, and inspect its report JSON.
+
+Both examples use MitoJS 4.0.0 and capture demo reports locally, without a production backend.
+
 ## ⚠️ attention
 
 **If you want to import in weixin miniprograme,please replace `@mitojs/browser` to `@miotjs/wx-mini`**

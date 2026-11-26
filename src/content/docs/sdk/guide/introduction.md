@@ -63,11 +63,7 @@ can collect the following user behavior
 
 ### Demo:experience the SDK to collect data
 
-* [react-sdk-demo](https://mitojs.github.io/react-sdk-demo/):Use @mitojs/react  in react@next
-
-* [vue3-sdk-demo](https://mitojs.github.io/vue3-sdk-demo/):Use @mitojs/vue in Vue3.x
-
-* [vue2-sdk-demo](https://mitojs.github.io/vue2-sdk-demo/):Use @mitojs/vue in Vue2.x
+[React 19: error boundaries and request tracing](https://mitojs.github.io/react-sdk-demo/) · [Vue 3: component errors and report inspector](https://mitojs.github.io/vue3-sdk-demo/) · [Vue 2: error monitoring and HTTP requests](https://mitojs.github.io/vue2-sdk-demo/). All three demos receive real SDK-generated test reports locally in the browser.
 
 ### DIY your weixin miniprograme track SDK
 
@@ -76,6 +72,8 @@ can collect the following user behavior
 ## 😃 monitoring platform(mito admin with mock data)
 
 
+
+[Open the mock monitoring dashboard](https://mitojs.github.io/mito-admin-demo/) to inspect sample records. They are simulated reports, not live SDK uploads or production data.
 
 [vue-admin-demo](https://mitojs.github.io/mito-admin-demo/#/errors/1/info): show a HTTP_ERROR in vue platform
 
