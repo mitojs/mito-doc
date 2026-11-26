@@ -11,6 +11,10 @@ sidebar:
 
 
 
+## Try the React 19 demo
+
+In the [MitoJS React 19 error monitoring demo](https://mitojs.github.io/react-sdk-demo/), trigger a render error, observe the ErrorBoundary fallback and inspect the actual SDK payload captured locally. The demo uses MitoJS 4.0.0 and requires no backend.
+
 ## ⚠️ attention
 
 **If you want to import in weixin miniprograme,please replace `@mitojs/browser` to `@miotjs/wx-mini`**
